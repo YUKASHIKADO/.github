@@ -1,0 +1,60 @@
+name: IssueFromForm
+description: "入力フォームからissueを作成する"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        * 後の議論によって issue の内容が変わった場合でも、先頭の内容は常に最新の情報に更新してください。
+          （第三者があとから見てひと目で内容把握できる状態に保つため）
+  - type: textarea
+    id: subject
+    attributes:
+      label: 解決したい課題
+      description: |
+        * やることではなく、どういう問題を解決したいかを書いてください。
+      placeholder: 500エラーが発生している。
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: 経緯
+      description: |
+        * どういう経緯で話が出てきたかを書いてください。
+        * 経緯を聞いてみたらそもそも課題が違った、ということを防ぎます。
+      placeholder: Slackの通知で発覚した。
+    validations:
+      required: true
+  - type: textarea
+    id: to-do
+    attributes:
+      label: "やりたいこと or 決めたいこと"
+      description: |
+        * 解決策として何をやりたいかを書いてください。 
+        * 上で解決すべき課題が明確になっていれば、開発者からより良い解決策を提案できるかもしれません。 
+        * やりたいことが定まらない場合は、決めたいこと、相談したいことを書いてください。
+      placeholder: "〇〇を確認する。その上で..."
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: "その他（不具合の再現方法や補足等）"
+      description: | 
+         * 不具合の場合は再現方法を書いてください。
+         * データのURLや関連するIssueなどがあれば書いておいてください。
+      placeholder: "〇〇という背景がある。"
+      value: "なし"
+    validations:
+      required: false
+  - type: textarea
+    id: stakeholders
+    attributes:
+      label: ステークホルダー
+      description: |
+        * このIssueを知っておいてほしい人にメンションしてください。 
+        * 法務など、GitHubにいない人も書いておいてください。
+      placeholder: "@urugus"
+      value: "なし"
+    validations:
+      required: false
